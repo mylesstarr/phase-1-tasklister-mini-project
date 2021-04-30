@@ -1,6 +1,6 @@
 // // const header = document.getElementsByTagName('h1')
 // // const myToDos = document.getElementsByTagName('h2')
-// // const elementId = document.getElementById('list')
+const elementList = document.getElementById('list')
 
 // // function logDocumentById(element){
 // //   const elementId = document.getElementById(element)
@@ -64,10 +64,16 @@ const inputForm = document.getElementById('create-task-form')
 function addEventToForm(){
   inputForm.addEventListener('submit', (event) => {
     event.preventDefault()
-    console.log(event.target)
-  }
+    console.log(event.target['new-task-description'].value)
+    let p = document.createElement('p')
+    p.textContent = event.target['new-task-description'].value
+    console.log(p)
+    elementList.appendChild(p)
+  })
+};
 
+addEventToForm();
 
-
+  
 
 
