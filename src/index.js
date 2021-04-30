@@ -1,79 +1,44 @@
-// // const header = document.getElementsByTagName('h1')
-// // const myToDos = document.getElementsByTagName('h2')
+
 const elementList = document.getElementById('list')
-
-// // function logDocumentById(element){
-// //   const elementId = document.getElementById(element)
-// //   console.log(`This is a console log of ${element} ${console.log(document.getElementById(element))}`)
-// // }
-
-// // logDocumentById('main-content')
-
-
-
-
-// // function functionToAddEventListener(itemOnPage) {
-// //   itemOnPage.addEventlistener("click", ()=>{console.log("that was clicked")})
-// // }
-
-// // functionToAddEventListener(elementId)
-
-
-
-// // function addAlertEvent(){}
-
-
-
-// // document.addEventListener("DOMContentLoaded", () => {
-
-// // const myToDos = document.getElementsByTagName('h2')
-
-// // myToDos.addEventListener('click', (event)=>{console.log("that was clicked")})
-
-// // })
-
-
-
-
-// const elementId = document.getElementById('list')
-
-// // function clickHandler(){
-// //   alert("hi")
-// // }
-
-// // function addAlertClick() {
-// //   const elementId = document.getElementById('list')
-// //   elementId.addEventListener("click", clickHandler )
-// // }
-
-// // addAlertClick()
-
-
-// function addAlertClick() {
-//   const elementId = document.getElementById('list')
-//   elementId.addEventListener("click", () => {
-//     alert("alert");
-//     console.log("alert was clicked")
-//   }) 
-
-// }
-// addAlertClick()
-
 const inputForm = document.getElementById('create-task-form')
 
 function addEventToForm(){
   inputForm.addEventListener('submit', (event) => {
     event.preventDefault()
-    console.log(event.target['new-task-description'].value)
+    // console.log(event.target['new-task-description'].value)
     let p = document.createElement('p')
     p.textContent = event.target['new-task-description'].value
     console.log(p)
     elementList.appendChild(p)
+    deleteEvent(p) 
+   
   })
-};
+}
 
-addEventToForm();
+addEventToForm()
 
-  
+function deleteEvent(node){
+  const deleteEntry = document.createElement("delete")
+  deleteEntry.innerText = "Delete"
+  node.appendChild(deleteEntry)
+  deleteEntry.addEventListener('click', (event) => {
+    console.log("clicked")
+    // console.log(document.getElementsByTagName("p"))
+    const itemToDelete = document.getElementsByTagName("p")
+    console.log(itemToDelete)
+    node.remove()
+    // itemToDelete.remove() })
+})
+}
+// deleteEvent()
 
 
+
+
+// function deleteEvent(){
+//   const deleteEntry = document.createElement("delete")
+//   deleteEntry.innerText = "Delete"
+//   inputForm.appendChild(deleteEntry)
+//   deleteEntry.addEventListener('click', (event) => {console.log("clicked")
+//   })
+// }
