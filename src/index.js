@@ -5,10 +5,15 @@ const inputForm = document.getElementById('create-task-form')
 function addEventToForm(){
   inputForm.addEventListener('submit', (event) => {
     event.preventDefault()
+    console.log(event)
     // console.log(event.target['new-task-description'].value)
     let p = document.createElement('p')
     p.textContent = event.target['new-task-description'].value
     console.log(p)
+    const styleSelection = document.getElementById("high")
+      console.log(styleSelection.innerText)
+    if (styleSelection.innerText === "High") {p.style.color = "red"}
+    
     elementList.appendChild(p)
     deleteEvent(p) 
    
@@ -19,7 +24,10 @@ addEventToForm()
 
 function deleteEvent(node){
   const deleteEntry = document.createElement("delete")
-  deleteEntry.innerText = "Delete"
+  deleteEntry.innerText = " Delete"
+  deleteEntry.style.color = "red"
+  deleteEntry.style.fontWeight = "bold"
+  deleteEntry.style
   node.appendChild(deleteEntry)
   deleteEntry.addEventListener('click', (event) => {
     console.log("clicked")
